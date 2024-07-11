@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+data:
+  RabbitMq__ClusterEnabled: "{{ .Values.rabbitmq.clusterEnabled }}"
+  RabbitMq__ConnStr: "{{ .Values.rabbitmq.connstr }}"
+  RabbitMq__UseSsl: "{{ .Values.rabbitmq.useSSL }}"
+  RabbitMq__User: "{{ .Values.rabbitmq.user }}"
+  RabbitMq__Host: {{ .Values.rabbitmq.host }}
+  Redis__UseSentienl: "{{ .Values.redis.useSentienl }}"
+  Redis__SentinelHosts: {{ .Values.redis.sentinelHosts }}
+  Redis__UseSSl: "{{ .Values.redis.useSSL }}"
+  VaultConfig__ClusterEnabled: "{{ .Values.vault.clusterEnabled }}"
+  VaultConfig__Path: "{{ .Values.vault.path }}"
+  ConsulConfig__Path: "{{ .Values.consul.path }}"
+  vault_default_secret: "{{ .Values.vault.secret }}"
+  vault_webapi_role: "{{ .Values.vault.role }}"
+  ElasticConfiguration__Enabled: "{{ .Values.elastic.enabled }}"
+  ElasticConfiguration__Uri: "{{ .Values.elastic.uri }}"
+  StsConfig__BaseAddress: "{{ .Values.sts.baseAddress }}"
+  Splunk__RunSplunk: "{{ .Values.splunk.runSplunk }}"
+  Kafka__Enabled: "{{ .Values.kafka.enabled }}"
