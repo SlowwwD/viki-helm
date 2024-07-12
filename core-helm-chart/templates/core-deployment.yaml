@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: core
+  name: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: core
+  template:
+    metadata:
+      labels:
+        io.kompose.network/prod: "true"
+        io.kompose.service: core
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-config
+          image: quay.io/vikisense/vikisql:core-sql1
+          livenessProbe:
+            exec:
+              command:
+                - wget --no-verbose --tries=1 http://localhost:446/api/health/live || exit 1
+            failureThreshold: 3
+            initialDelaySeconds: 10
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: core
+          ports:
+            - containerPort: 446
+              protocol: TCP
+      imagePullSecrets:
+        - name: vikisense-vikiclalit-pull-secret
+      restartPolicy: Always

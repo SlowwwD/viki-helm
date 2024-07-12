@@ -1,0 +1,29 @@
+
+rabbitmq:
+  clusterEnabled: "false"
+  connstr: "rabbitmq://user:mitwMrKNm4cj4fSW@rabbitmq.rabbitmq.svc.cluster.local:5672"
+  useSSL: "false"
+  user: "user"
+  host: rabbitmq.rabbitmq.svc.cluster.local
+
+redis:
+  useSentienl: "true"
+  sentinelHosts: redis.redis.svc.cluster.local:26379
+  useSSL: "false"
+
+aspnetcore:
+  environment: Development
+
+faceEngine:
+  matchThreshold: "0.75"
+  liveThreshold: "0.9"
+  blurThreshold: "15"
+  checkBlur: "false"
+  logResult: "false"
+  runOnetoMany: "false"
+
+api:
+  ignoreEngine: "false"
+
+elastic:
+  uri: "http://elasticsearch-master.monitoring.svc.cluster.local:9200"

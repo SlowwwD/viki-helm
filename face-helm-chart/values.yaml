@@ -1,0 +1,25 @@
+
+rabbitmq:
+  clusterEnabled: "false"
+  connstr: "rabbitmq://user:mitwMrKNm4cj4fSW@rabbitmq.rabbitmq.svc.cluster.local:5672"
+  useSSL: "false"
+  user: "user"
+  host: rabbitmq.rabbitmq.svc.cluster.local
+
+redis:
+  useSentienl: "true"
+  sentinelHosts: redis.redis.svc.cluster.local:26379
+  useSSL: "false"
+  
+vault:
+  clusterEnabled: "false"
+  path: "http://vault-ha.vault-ha.svc.cluster.local:8200"
+  secret: "NOSECRET"
+  role: "92ffbaab-93a2-1ed5-3551-cfca9c19ddf4"
+    
+consul:
+  path: "http://consul-server.consul.svc.cluster.local:8500"
+
+elastic:
+  enabled: "true"
+  uri: "http://elasticsearch-master.monitoring.svc.cluster.local:9200"
