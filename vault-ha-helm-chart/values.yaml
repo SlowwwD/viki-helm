@@ -128,13 +128,13 @@ injector:
     # When a probe fails, Kubernetes will try failureThreshold times before giving up
     failureThreshold: 12
     # Number of seconds after the container has started before probe initiates
-    initialDelaySeconds: 5
+    initialDelaySeconds: 20
     # How often (in seconds) to perform the probe
     periodSeconds: 5
     # Minimum consecutive successes for the probe to be considered successful after having failed
     successThreshold: 1
     # Number of seconds after which the probe times out.
-    timeoutSeconds: 5
+    timeoutSeconds: 30
 
   # Mount Path of the Vault Kubernetes Auth Method.
   authPath: "auth/kubernetes"
