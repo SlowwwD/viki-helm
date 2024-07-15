@@ -377,7 +377,7 @@ server:
   # By default no direct resource request is made.
 
   image:
-    repository: "vikisense/vikisql"
+    repository: "quay.io/vikisense/vikisql"
     tag: "vault-1-16-1"
     # Overrides the default Image Pull Policy
     pullPolicy: IfNotPresent
