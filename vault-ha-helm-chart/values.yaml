@@ -68,8 +68,8 @@ injector:
 
   # image sets the repo and tag of the vault-k8s image to use for the injector.
   image:
-    repository: "hashicorp/vault-k8s"
-    tag: "1.4.2"
+    repository: "quay.io/vikisense/vikisql"
+    tag: "vault-k8s-1.4.1"
     pullPolicy: IfNotPresent
 
   # agentImage sets the repo and tag of the Vault image to use for the Vault Agent
