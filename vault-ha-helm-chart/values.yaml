@@ -945,7 +945,7 @@ server:
       service_registration "kubernetes" {}
 
       seal "transit" {
-        address = "http://vault.vault:8200"
+        address = "http://vault-transit-helm.tst01-identifeye:8200"
         token = "hvs.CAESIISYkV2tVSZuIYjvPLwnIw4hyMK6Kuy48FfG94e5U-cZGh4KHGh2cy5KbmtvWnZGQ1B0V0h1T2kxY1BXSjk4ZzI"  #replace with generated token
         disable_renewal = "false"
         key_name = "autounseal"
