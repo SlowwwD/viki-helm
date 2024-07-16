@@ -946,7 +946,7 @@ server:
 
       seal "transit" {
         address = "http://vault.vault:8200"
-        token = "hvs.CAESIP98DEmx-2NikFs1DMMJzGrqXadDDQgByw4V7a0M2hl4Gh4KHGh2cy5NVnNSRU9KcDlBTGNVS3JuU0lsajh6YzE"  #replace with generated token
+        token = "hvs.CAESIISYkV2tVSZuIYjvPLwnIw4hyMK6Kuy48FfG94e5U-cZGh4KHGh2cy5KbmtvWnZGQ1B0V0h1T2kxY1BXSjk4ZzI"  #replace with generated token
         disable_renewal = "false"
         key_name = "autounseal"
         mount_path = "transit/"
