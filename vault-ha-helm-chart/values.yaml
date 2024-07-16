@@ -939,7 +939,7 @@ server:
       }
       storage "consul" {
         path = "vault-ha/data"
-        address = "consul-server.consul:8500"
+        address = "consul-viki-server.tst01-identifeye:8500"
       }
 
       service_registration "kubernetes" {}
