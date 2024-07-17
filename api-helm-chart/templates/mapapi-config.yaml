@@ -21,4 +21,4 @@ data:
   StsConfig__BaseAddress: "{{ .Values.sts.baseAddress }}"
   Splunk__RunSplunk: "{{ .Values.splunk.runSplunk }}"
   Kafka__Enabled: "{{ .Values.kafka.enabled }}"
-  Api__DbType: "{{ .Values.}}"
+  Api__DbType: "{{ .Values.api.dbtype}}"
