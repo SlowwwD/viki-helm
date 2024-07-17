@@ -1,16 +1,15 @@
-
 rabbitmq:
   clusterEnabled: "false"
-  connstr: "rabbitmq://user:mitwMrKNm4cj4fSW@rabbitmq.rabbitmq.svc.cluster.local:5672"
+  connstr: "rabbitmq://user:byQVHl4FpqaAvzc3@rabbitmq-helm.tst01-identifeye.svc.cluster.local:5672"
   useSSL: "false"
   user: "user"
-  host: rabbitmq.rabbitmq.svc.cluster.local
+  host: rabbitmq-helm.tst01-identifeye.svc.cluster.local
 
 redis:
   useSentienl: "true"
-  sentinelHosts: redis.redis.svc.cluster.local:26379
+  sentinelHosts: redis-helm.tst01-identifeye.svc.cluster.local:26379
   useSSL: "false"
-
+  
 aspnetcore:
   environment: Development
 
@@ -26,4 +25,5 @@ api:
   ignoreEngine: "false"
 
 elastic:
+  enabled: "true"
   uri: "http://elasticsearch-master.monitoring.svc.cluster.local:9200"
