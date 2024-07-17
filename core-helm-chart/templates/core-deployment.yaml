@@ -20,6 +20,7 @@ spec:
             - configMapRef:
                 name: {{ .Release.Name }}-config
           image: quay.io/vikisense/vikisql:core-sql1
+          imagePullPolicy: Always
           livenessProbe:
             exec:
               command:
