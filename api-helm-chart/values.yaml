@@ -15,7 +15,7 @@ vault:
   clusterEnabled: "false"
   path: "http://vault-ha-helm.tst01-identifeye.svc.cluster.local:8200"
   secret: "NOSECRET"
-  role: "9d544af4-c4d5-25a0-50d2-190a6ae49b08"
+  role: "d37188a6-dd75-06fc-588b-e6d89d32cf86"
     
 consul:
   path: "http://consul-viki-server.tst01-identifeye.svc.cluster.local:8500"
