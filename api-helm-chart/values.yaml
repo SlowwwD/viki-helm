@@ -34,4 +34,4 @@ kafka:
   enabled: "false"
 
 api:
-  dbtype: "SqlServer"
+  dbtype: "Mysql"
