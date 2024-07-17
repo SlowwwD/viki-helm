@@ -1,6 +1,6 @@
 rabbitmq:
   clusterEnabled: "false"
-  connstr: "rabbitmq://user:byQVHl4FpqaAvzc3@rabbitmq-helm.tst01-identifeye.svc.cluster.local:5672"
+  connstr: "rabbitmq://user:{0}@rabbitmq-helm.tst01-identifeye.svc.cluster.local:5672"
   useSSL: "false"
   user: "user"
   host: rabbitmq-helm.tst01-identifeye.svc.cluster.local
