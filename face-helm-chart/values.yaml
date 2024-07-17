@@ -22,3 +22,6 @@ consul:
 elastic:
   enabled: "true"
   uri: "http://elasticsearch-master.monitoring.svc.cluster.local:9200"
+
+db:
+  type: "SqlServer"
