@@ -32,3 +32,6 @@ splunk:
 
 kafka: 
   enabled: "false"
+
+api:
+  dbtype: "SqlServer"
