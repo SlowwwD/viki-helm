@@ -9,7 +9,7 @@ data:
   RabbitMq__User: "{{ .Values.rabbitmq.user }}"
   RabbitMq__Host: {{ .Values.rabbitmq.host }}
   Redis__UseSentienl: "{{ .Values.redis.useSentienl }}"
-  Redis__SentinelHosts: {{ .Values.redis.sentinelHosts }}
+  Redis__SentinelHostsComma: {{ .Values.redis.sentinelHosts }}
   Redis__UseSSl: "{{ .Values.redis.useSSL }}"
   ASPNETCORE__ENVIRONMENT: "{{ .Values.aspnetcore.environment }}"
   FaceEngineSettings__MatchThreshold: "{{ .Values.faceEngine.matchThreshold }}"
