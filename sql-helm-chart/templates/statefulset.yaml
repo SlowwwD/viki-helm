@@ -16,9 +16,7 @@ spec:
       securityContext:
         fsGroup: 10001
       imagePullSecrets:
-        {{- range .Values.imagePullSecrets }}
-        - name: {{ . }}
-        {{- end }}
+      - name: vikisense-vikiclalit-pull-secret
       containers:
         - name: {{ .Values.service.name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
