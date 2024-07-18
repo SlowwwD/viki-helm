@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  name: mssql
+  name: mssql-helm
   type: ClusterIP
   port: 1433
 
@@ -19,5 +19,5 @@ env:
 volume:
   storage: 8Gi
 
-imagePullSecrets:
-  - name: vikisense-vikiclalit-pull-secret
+# imagePullSecrets:
+#   - name: vikisense-vikiclalit-pull-secret
