@@ -6,7 +6,7 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  name: mssql-helm
+  name: mssql
   type: ClusterIP
   port: 1433
 
