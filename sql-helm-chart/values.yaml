@@ -1,0 +1,23 @@
+replicaCount: 1
+
+image:
+  repository: quay.io/vikisense/vikisql
+  tag: mssql
+  pullPolicy: IfNotPresent
+
+service:
+  name: mssql
+  type: ClusterIP
+  port: 1433
+
+env:
+  ACCEPT_EULA: "Y"
+  MSSQL_ENABLE_HADR: "1"
+  MSSQL_AGENT_ENABLED: "1"
+  MSSQL_SA_PASSWORD: "ThisIsFast2023"
+
+volume:
+  storage: 8Gi
+
+imagePullSecrets:
+  - name: vikisense-vikiclalit-pull-secret

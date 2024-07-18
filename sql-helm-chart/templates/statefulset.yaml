@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Values.service.name }}
+spec:
+  serviceName: "{{ .Values.service.name }}"
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.service.name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.service.name }}
+    spec:
+      securityContext:
+        fsGroup: 10001
+      imagePullSecrets:
+        {{- range .Values.imagePullSecrets }}
+        - name: {{ . }}
+        {{- end }}
+      containers:
+        - name: {{ .Values.service.name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: {{ .Values.service.port }}
+              name: tcpsql
+          env:
+            - name: ACCEPT_EULA
+              value: "{{ .Values.env.ACCEPT_EULA }}"
+            - name: MSSQL_ENABLE_HADR
+              value: "{{ .Values.env.MSSQL_ENABLE_HADR }}"
+            - name: MSSQL_AGENT_ENABLED
+              value: "{{ .Values.env.MSSQL_AGENT_ENABLED }}"
+            - name: MSSQL_SA_PASSWORD
+              value: "{{ .Values.env.MSSQL_SA_PASSWORD }}"
+          volumeMounts:
+            - name: {{ .Values.service.name }}
+              mountPath: "/var/opt/mssql"
+  volumeClaimTemplates:
+    - metadata:
+        name: {{ .Values.service.name }}
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: {{ .Values.volume.storage }}
