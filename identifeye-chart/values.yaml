@@ -14,7 +14,7 @@ vault:
   clusterEnabled: "false"
   path: "http://vault-ha-helm.tst01-identifeye.svc.cluster.local:8200"
   secret: "NOSECRET"
-  webapi-role: "d37188a6-dd75-06fc-588b-e6d89d32cf86"
+  webapirole: "d37188a6-dd75-06fc-588b-e6d89d32cf86"
   role: "82b7fb4f-a651-3b3e-8f8f-71dc02354690"
     
 consul:
