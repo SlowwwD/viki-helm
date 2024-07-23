@@ -15,7 +15,7 @@ data:
   VaultConfig__Path: "{{ .Values.vault.path }}"
   ConsulConfig__Path: "{{ .Values.consul.path }}"
   vault_default_secret: "{{ .Values.vault.secret }}"
-  vault_webapi_role: "{{ .Values.vault.webapi-role }}"
+  vault_webapi_role: "{{ .Values.vault.webapirole }}"
   ElasticConfiguration__Enabled: "{{ .Values.elastic.enabled }}"
   ElasticConfiguration__Uri: "{{ .Values.elastic.uri }}"
   StsConfig__BaseAddress: "{{ .Values.sts.baseAddress }}"
