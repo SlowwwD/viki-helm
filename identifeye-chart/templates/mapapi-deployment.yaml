@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: mapapi
+  name: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: mapapi
+  template:
+    metadata:
+      labels:
+        io.kompose.network/prod: "true"
+        io.kompose.service: mapapi
+    spec:
+      containers:
+        - envFrom:
+            - configMapRef:
+                name: {{ .Release.Name }}-config
+          image: quay.io/vikisense/vikisql:api-sql1
+          imagePullPolicy: Always
+          livenessProbe:
+            exec:
+              command:
+                - sh
+                - "-c"
+                - "wget --no-verbose --tries=1 http://localhost:447/api/health/live || exit 1"
+            failureThreshold: 3
+            initialDelaySeconds: 20
+            periodSeconds: 30
+            timeoutSeconds: 5
+          name: mapapi
+          ports:
+            - containerPort: 447
+              protocol: TCP
+      imagePullSecrets:
+        - name: vikisense-vikiclalit-pull-secret

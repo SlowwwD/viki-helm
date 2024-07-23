@@ -1,0 +1,53 @@
+rabbitmq:
+  clusterEnabled: "false"
+  connstr: "rabbitmq://user:{0}@rabbitmq-helm.tst01-identifeye.svc.cluster.local:5672"
+  useSSL: "false"
+  user: "user"
+  host: rabbitmq-helm.tst01-identifeye.svc.cluster.local
+
+redis:
+  useSentienl: "true"
+  sentinelHosts: redis-helm.tst01-identifeye.svc.cluster.local:26379
+  useSSL: "false"
+  
+vault:
+  clusterEnabled: "false"
+  path: "http://vault-ha-helm.tst01-identifeye.svc.cluster.local:8200"
+  secret: "NOSECRET"
+  webapi-role: "d37188a6-dd75-06fc-588b-e6d89d32cf86"
+  role: "82b7fb4f-a651-3b3e-8f8f-71dc02354690"
+    
+consul:
+  path: "http://consul-viki-server.tst01-identifeye.svc.cluster.local:8500"
+
+elastic:
+  enabled: "true"
+  uri: "http://elasticsearch-master.monitoring.svc.cluster.local:9200"
+
+sts:
+  baseAddress: "http://stsapi.default.svc.cluster.local:8081"
+
+splunk:
+  runSplunk: "false"
+
+kafka: 
+  enabled: "false"
+
+api:
+  dbtype: "Mysql"
+  ignoreEngine: "false"
+
+db:
+  type: "Mysql"
+
+aspnetcore:
+  environment: Development
+
+faceEngine:
+  matchThreshold: "0.75"
+  liveThreshold: "0.9"
+  blurThreshold: "15"
+  checkBlur: "false"
+  logResult: "false"
+  runOnetoMany: "false"
+

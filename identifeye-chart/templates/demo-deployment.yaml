@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    io.kompose.service: map-demo
+  name: {{ .Release.Name }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: map-demo
+  template:
+    metadata:
+      labels:
+        io.kompose.network/prod: "true"
+        io.kompose.service: map-demo
+    spec:
+      containers:
+        - image: quay.io/vikisense/vikisql:demo
+          name: map-demo
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: vikisense-vikiclalit-pull-secret
+      restartPolicy: Always
