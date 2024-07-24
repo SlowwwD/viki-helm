@@ -1,10 +1,50 @@
-deployment:
+Coredeployment:
   name: core
   replicas: 1
   image: quay.io/vikisense/vikisql:core-sql1
 
-configMap:
+CoreconfigMap:
   name: core-config
+
+Demodeployment:
+  name: map-demo
+  replicas: 1
+  image: quay.io/vikisense/vikisql:demo
+
+DemoconfigMap:
+  name: demo-config
+
+Facedeployment:
+  name: face
+  replicas: 1
+  image: quay.io/vikisense/vikisql:core-face-sql1
+
+FaceconfigMap:
+  name: face-config
+
+Apideployment:
+  name: mapapi
+  replicas: 1
+  image: quay.io/vikisense/vikisql:api-sql1
+
+ApiconfigMap:
+  name: mapapi-config
+
+Mfbdeployment:
+  name: multifacebioapi
+  replicas: 1
+  image: quay.io/vikisense/vikisql:mfb
+
+MfbconfigMap:
+  name: multifacebioapi-config
+
+Voicedeployment:
+  name: voice
+  replicas: 1
+  image: quay.io/vikisense/vikisql:core-voice-sql1
+
+VoiceconfigMap:
+  name: voice-config
 
 imagePullSecrets: vikisense-vikiclalit-pull-secret
 
