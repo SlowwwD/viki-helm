@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: mapapi
-  name: {{ .Release.Name }}
+  name: {{ .Values.Apideployment.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.Apideployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: mapapi
@@ -18,8 +18,8 @@ spec:
       containers:
         - envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-config
-          image: quay.io/vikisense/vikisql:api-sql1
+                name: {{ .Values.ApiconfigMap.name }}
+          image: {{ .Values.Apideployment.image }}
           imagePullPolicy: Always
           livenessProbe:
             exec:
@@ -36,4 +36,4 @@ spec:
             - containerPort: 447
               protocol: TCP
       imagePullSecrets:
-        - name: vikisense-vikiclalit-pull-secret
+        - name: {{ .Values.imagePullSecrets }}
