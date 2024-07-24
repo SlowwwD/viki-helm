@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: core
-  name: {{ .Values.deployment.name }}
+  name: {{ .Values.Coredeployment.name }}
 spec:
-  replicas: {{ .Values.deployment.replicas }}
+  replicas: {{ .Values.Coredeployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: core
@@ -18,8 +18,8 @@ spec:
       containers:
         - envFrom:
             - configMapRef:
-                name: {{ .Values.configMap.name }}
-          image: {{ .Values.deployment.image }}
+                name: {{ .Values.CoreconfigMap.name }}
+          image: {{ .Values.Coredeployment.image }}
           # image: quay.io/vikisense/vikisql:core-sql1
           imagePullPolicy: Always
           livenessProbe:
