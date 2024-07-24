@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: multifacebioapi
-  name: {{ .Release.Name }}
+  name: {{ .Values.Mfbdeployment.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.Mfbdeployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: multifacebioapi
@@ -18,8 +18,8 @@ spec:
       containers:
         - envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-config
-          image: quay.io/vikisense/vikisql:mfb
+                name: {{ .Values.MfbconfigMap.name }}
+          image: {{ .Values.Mfbdeployment.image }}
           imagePullPolicy: Always
           # livenessProbe:
           #   exec:
@@ -34,5 +34,5 @@ spec:
             - containerPort: 500
               protocol: TCP
       imagePullSecrets:
-        - name: vikisense-vikiclalit-pull-secret
+        - name: {{ .Values.imagePullSecrets }}
       restartPolicy: Always
