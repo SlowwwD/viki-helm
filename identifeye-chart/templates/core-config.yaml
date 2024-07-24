@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: {{ .Values.configMap.name }}
+  name: {{ .Values.CoreconfigMap.name }}
 data:
   RabbitMq__ClusterEnabled: "{{ .Values.rabbitmq.clusterEnabled }}"
   RabbitMq__ConnStr: "{{ .Values.rabbitmq.connstr }}"
