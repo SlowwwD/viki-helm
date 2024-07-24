@@ -1,3 +1,14 @@
+deployment:
+  name: core
+  replicas: 1
+  image: quay.io/vikisense/vikisql:core-sql1
+
+configMap:
+  name: core-config
+
+imagePullSecrets: vikisense-vikiclalit-pull-secret
+
+
 rabbitmq:
   clusterEnabled: "false"
   connstr: "rabbitmq://user:{0}@rabbitmq-helm.tst01-identifeye.svc.cluster.local:5672"
