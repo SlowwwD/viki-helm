@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: map-demo
-  name: {{ .Release.Name }}
+  name: {{ .Values.Demodeployment.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.Demodeployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: map-demo
@@ -16,12 +16,12 @@ spec:
         io.kompose.service: map-demo
     spec:
       containers:
-        - image: quay.io/vikisense/vikisql:demo
+        - image: {{ .Values.Demodeployment.image }}
           name: map-demo
           ports:
             - containerPort: 8080
               protocol: TCP
           imagePullPolicy: Always
       imagePullSecrets:
-        - name: vikisense-vikiclalit-pull-secret
+        - name: {{ .Values.imagePullSecrets }}
       restartPolicy: Always
