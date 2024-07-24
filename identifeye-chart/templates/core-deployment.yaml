@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: core
-  name: {{ .Release.Name }}
+  name: {{ .Values.deployment.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: core
@@ -18,8 +18,9 @@ spec:
       containers:
         - envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-config
-          image: quay.io/vikisense/vikisql:core-sql1
+                name: {{ .Values.configMap.name }}
+          image: {{ .Values.deployment.image }}
+          # image: quay.io/vikisense/vikisql:core-sql1
           imagePullPolicy: Always
           livenessProbe:
             exec:
@@ -34,5 +35,5 @@ spec:
             - containerPort: 446
               protocol: TCP
       imagePullSecrets:
-        - name: vikisense-vikiclalit-pull-secret
+        - name: {{ .Values.imagePullSecrets }}
       restartPolicy: Always
