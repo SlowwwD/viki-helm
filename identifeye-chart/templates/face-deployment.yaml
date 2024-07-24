@@ -3,9 +3,9 @@ kind: Deployment
 metadata:
   labels:
     io.kompose.service: face
-  name: {{ .Release.Name }}
+  name: {{ .Values.Facedeployment.name }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.Facedeployment.replicas }}
   selector:
     matchLabels:
       io.kompose.service: face
@@ -18,8 +18,8 @@ spec:
       containers:
         - envFrom:
             - configMapRef:
-                name: {{ .Release.Name }}-config
-          image: quay.io/vikisense/vikisql:core-face-sql1
+                name: {{ .Values.FaceconfigMap.name }}
+          image: {{ .Values.Facedeployment.image }}
           imagePullPolicy: Always
           livenessProbe:
             exec:
@@ -34,5 +34,5 @@ spec:
             - containerPort: 448
               protocol: TCP
       imagePullSecrets:
-        - name: vikisense-vikiclalit-pull-secret
+        - name: {{ .Values.imagePullSecrets }}
       restartPolicy: Always
