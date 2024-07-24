@@ -2311,7 +2311,7 @@ syncCatalog:
 connectInject:
   # True if you want to enable connect injection. Set to "-" to inherit from
   # global.enabled.
-  enabled: true
+  enabled: false
 
   # The number of deployment replicas.
   replicas: 1
