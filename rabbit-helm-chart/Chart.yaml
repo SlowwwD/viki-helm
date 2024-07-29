@@ -13,7 +13,7 @@ apiVersion: v2
 appVersion: 3.13.1
 dependencies:
 - name: common
-  repository: oci://registry-1.docker.io/bitnamicharts
+  repository: file:///Users/frimps/Files/temp/vikisense/bitbucket/viki/viki-helm/rabbit-helm-chart     ###change this to own file path 
   tags:
   - bitnami-common
   version: 2.x.x
