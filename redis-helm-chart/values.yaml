@@ -246,7 +246,7 @@ master:
   ## @param master.livenessProbe.successThreshold Success threshold for livenessProbe
   ##
   livenessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 5
@@ -260,7 +260,7 @@ master:
   ## @param master.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 1
@@ -725,7 +725,7 @@ replica:
   ## @param replica.livenessProbe.successThreshold Success threshold for livenessProbe
   ##
   livenessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 5
@@ -739,7 +739,7 @@ replica:
   ## @param replica.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 1
@@ -1252,7 +1252,7 @@ sentinel:
   ## @param sentinel.livenessProbe.successThreshold Success threshold for livenessProbe
   ##
   livenessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 10
     timeoutSeconds: 5
@@ -1266,7 +1266,7 @@ sentinel:
   ## @param sentinel.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 20
     periodSeconds: 5
     timeoutSeconds: 1
