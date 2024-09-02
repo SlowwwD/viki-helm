@@ -1116,9 +1116,9 @@ server:
   # @recurse: false
   securityContext:
     runAsNonRoot: true
-    runAsGroup: 1000
-    runAsUser: 100
-    fsGroup: 1000
+    runAsGroup: 1001320001
+    runAsUser: 1001320001
+    fsGroup: 1001320001
 
   # The container securityContext for each container in the server pods.  In
   # addition to the Pod's SecurityContext this can
@@ -1682,9 +1682,9 @@ client:
   # @recurse: false
   securityContext:
     runAsNonRoot: true
-    runAsGroup: 1000
-    runAsUser: 100
-    fsGroup: 1000
+    runAsGroup: 1001320001
+    runAsUser: 1001320001
+    fsGroup: 1001320001
 
   # The container securityContext for each container in the client pods.  In
   # addition to the Pod's SecurityContext this can
